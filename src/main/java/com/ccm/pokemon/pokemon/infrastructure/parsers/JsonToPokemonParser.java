@@ -2,6 +2,7 @@ package com.ccm.pokemon.pokemon.infrastructure.parsers;
 
 import com.ccm.pokemon.pokemon.domain.aggregate.Pokemon;
 import com.ccm.pokemon.pokemon.domain.valueObjects.Name;
+import com.ccm.pokemon.pokemon.domain.valueObjects.PokemonFavouriteCounter;
 import com.ccm.pokemon.pokemon.domain.valueObjects.PokemonId;
 import com.ccm.pokemon.pokemon.domain.valueObjects.PokemonType;
 import org.json.simple.JSONArray;
