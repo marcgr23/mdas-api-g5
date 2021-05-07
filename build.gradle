@@ -21,6 +21,7 @@ dependencies {
     testImplementation 'io.quarkus:quarkus-junit5'
     testImplementation 'io.rest-assured:rest-assured'
     testImplementation "org.mockito:mockito-core:3.+"
+    compile 'com.rabbitmq:amqp-client:5.10.0'
 }
 
 group 'com.ccm'

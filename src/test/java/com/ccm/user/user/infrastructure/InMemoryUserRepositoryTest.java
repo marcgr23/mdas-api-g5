@@ -4,7 +4,7 @@ import com.ccm.user.user.domain.aggregate.User;
 import com.ccm.user.user.domain.interfaces.UserRepository;
 import com.ccm.user.user.domain.services.UserMother;
 import com.ccm.user.user.domain.services.UsersMother;
-import com.ccm.user.user.domain.vo.UserName;
+import com.ccm.user.user.infrastructure.repositories.InMemoryUserRepository;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

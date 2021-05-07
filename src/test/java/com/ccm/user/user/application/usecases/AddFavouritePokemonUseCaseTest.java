@@ -23,7 +23,7 @@ public class AddFavouritePokemonUseCaseTest {
     AddFavouritePokemonUseCase tested;
 
     @Test
-    public void verify_addFavouritePokemon_CallsToMethods() throws UserNotFoundException, FavouritePokemonAlreadyExistsException {
+    public void verify_addFavouritePokemon_CallsToMethods() throws Exception {
         FavouritePokemonId pokemonId = new FavouritePokemonId(123);
         UserId userId = new UserId(1);
         UserFavouritePokemonDTO userFavouritePokemonDTO = new UserFavouritePokemonDTO(

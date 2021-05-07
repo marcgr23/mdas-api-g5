@@ -1,4 +1,4 @@
-package com.ccm.pokemon.pokemon.infrastructure.controller;
+package com.ccm.pokemon.pokemon.infrastructure.repositories;
 
 import com.ccm.pokemon.pokemon.domain.aggregate.Pokemon;
 import com.ccm.pokemon.pokemon.domain.exceptions.NetworkConnectionException;
