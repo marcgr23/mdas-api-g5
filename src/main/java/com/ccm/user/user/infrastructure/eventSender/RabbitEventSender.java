@@ -1,4 +1,4 @@
-package com.ccm.user.user.infrastructure.repositories;
+package com.ccm.user.user.infrastructure.eventSender;
 
 import com.ccm.user.user.domain.interfaces.EventSender;
 import com.ccm.user.user.domain.vo.FavouritePokemonId;
@@ -7,7 +7,6 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import io.quarkus.runtime.StartupEvent;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
 import javax.inject.Named;

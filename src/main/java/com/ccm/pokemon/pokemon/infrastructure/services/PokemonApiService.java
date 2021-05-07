@@ -1,14 +1,12 @@
-package com.ccm.pokemon.pokemon.infrastructure.repositories;
+package com.ccm.pokemon.pokemon.infrastructure.services;
 
 import com.ccm.pokemon.pokemon.domain.aggregate.Pokemon;
 import com.ccm.pokemon.pokemon.domain.exceptions.NetworkConnectionException;
+import com.ccm.pokemon.pokemon.domain.exceptions.PokemonNotFoundException;
 import com.ccm.pokemon.pokemon.domain.exceptions.TimeoutException;
 import com.ccm.pokemon.pokemon.domain.exceptions.UnknownException;
-import com.ccm.pokemon.pokemon.domain.interfaces.PokemonRepository;
-import com.ccm.pokemon.pokemon.domain.interfaces.SavePokemonRepository;
 import com.ccm.pokemon.pokemon.domain.valueObjects.PokemonId;
 import com.ccm.pokemon.pokemon.infrastructure.parsers.JsonToPokemonParser;
-import com.ccm.pokemon.pokemon.domain.exceptions.PokemonNotFoundException;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -19,16 +17,13 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 
 @ApplicationScoped
-@Named("HttpPokemon")
-public class HttpPokemonRepository implements PokemonRepository {
+public class PokemonApiService {
 
     private static final String HOST_ENDPOINT = "https://pokeapi.co/api/v2/pokemon/";
     private static final double TIMEOUT = 3;
@@ -36,7 +31,6 @@ public class HttpPokemonRepository implements PokemonRepository {
     @Inject
     JsonToPokemonParser jsonToPokemonParser;
 
-    @Override
     public Pokemon find(PokemonId pokemonId) throws PokemonNotFoundException, TimeoutException, NetworkConnectionException, UnknownException {
         CloseableHttpClient client = HttpClients.createDefault();
         HttpGet request = new HttpGet(HOST_ENDPOINT + pokemonId.getPokemonId());

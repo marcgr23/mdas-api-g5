@@ -12,7 +12,7 @@ import javax.inject.Named;
 public class UserCreator {
 
     @Inject
-    @Named("InMemory")
+    @Named("InMemoryUser")
     UserRepository userRepository;
 
     public void createUser(User user) throws UserAlreadyExistsException {

@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @ApplicationScoped
-@Named("InMemory")
+@Named("InMemoryUser")
 public class InMemoryUserRepository implements UserRepository {
 
     List<User> inMemoryUsers = new ArrayList<>();

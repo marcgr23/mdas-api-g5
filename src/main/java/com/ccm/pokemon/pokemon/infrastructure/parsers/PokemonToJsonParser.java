@@ -21,6 +21,7 @@ public class PokemonToJsonParser {
         resultPokemon.put("types", typesList);
         resultPokemon.put("name", pokemon.getName().getName());
         resultPokemon.put("id", pokemon.getPokemonId().getPokemonId());
+        resultPokemon.put("favouriteCounter", pokemon.getPokemonFavouriteTimes().getPokemonFavouriteCounter());
 
         return resultPokemon.toJSONString();
     }

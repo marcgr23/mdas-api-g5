@@ -13,7 +13,7 @@ import javax.inject.Named;
 public class UserFinder {
 
     @Inject
-    @Named("InMemory")
+    @Named("InMemoryUser")
     UserRepository userRepository;
 
     public User findUser(UserId userId) throws UserNotFoundException {

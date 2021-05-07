@@ -4,7 +4,7 @@ import com.ccm.pokemon.pokemon.domain.aggregate.Pokemon;
 import com.ccm.pokemon.pokemon.domain.exceptions.NetworkConnectionException;
 import com.ccm.pokemon.pokemon.domain.exceptions.TimeoutException;
 import com.ccm.pokemon.pokemon.domain.exceptions.UnknownException;
-import com.ccm.pokemon.pokemon.domain.interfaces.SavePokemonRepository;
+import com.ccm.pokemon.pokemon.domain.interfaces.PokemonRepository;
 import com.ccm.pokemon.pokemon.domain.valueObjects.Name;
 import com.ccm.pokemon.pokemon.domain.valueObjects.PokemonId;
 import com.ccm.pokemon.pokemon.domain.valueObjects.PokemonType;
@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @QuarkusTest
 public class HttpPokemonRepositoryTest {
     @Inject
-    SavePokemonRepository pokemonRepository;
+    PokemonRepository pokemonRepository;
 
     @Test
     public void shouldFindPokemon() throws PokemonNotFoundException, TimeoutException, UnknownException, NetworkConnectionException {
