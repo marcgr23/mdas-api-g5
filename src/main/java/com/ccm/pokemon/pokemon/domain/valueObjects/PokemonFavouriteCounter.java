@@ -8,7 +8,7 @@ public class PokemonFavouriteCounter {
     private int pokemonFavouriteCounter;
 
     public PokemonFavouriteCounter() {
-        this.pokemonFavouriteCounter = 1;
+        this.pokemonFavouriteCounter = 0;
     }
 
     public int getPokemonFavouriteCounter() { return pokemonFavouriteCounter; }

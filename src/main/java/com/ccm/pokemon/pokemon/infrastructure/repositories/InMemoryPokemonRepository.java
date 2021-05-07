@@ -50,6 +50,8 @@ public class InMemoryPokemonRepository implements PokemonRepository {
 
     @Override
     public void create(PokemonId pokemonId) throws PokemonNotFoundException, TimeoutException, UnknownException, NetworkConnectionException {
-        inMemoryPokemons.add(pokemonApiService.find(pokemonId));
+        Pokemon pokemon = pokemonApiService.find(pokemonId);
+        pokemon.getPokemonFavouriteTimes().increaseCounter();
+        inMemoryPokemons.add(pokemon);
     }
 }
