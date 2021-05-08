@@ -11,7 +11,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
 @ApplicationScoped
-public class AddFavouritePokemonToUser {
+public class AddFavouritePokemon {
     @Inject
     UserFinder userFinder;
 

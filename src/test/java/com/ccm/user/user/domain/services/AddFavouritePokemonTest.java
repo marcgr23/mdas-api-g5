@@ -3,7 +3,6 @@ package com.ccm.user.user.domain.services;
 import com.ccm.user.user.domain.aggregate.User;
 import com.ccm.user.user.domain.entities.FavouritePokemon;
 import com.ccm.user.user.domain.exceptions.FavouritePokemonAlreadyExistsException;
-import com.ccm.user.user.domain.exceptions.UserAlreadyExistsException;
 import com.ccm.user.user.domain.exceptions.UserNotFoundException;
 import com.ccm.user.user.domain.vo.FavouritePokemonId;
 import com.ccm.user.user.domain.vo.UserId;
@@ -21,9 +20,9 @@ import static org.mockito.Mockito.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @QuarkusTest
-public class AddFavouritePokemonToUserTest {
+public class AddFavouritePokemonTest {
     @Inject
-    AddFavouritePokemonToUser tested;
+    AddFavouritePokemon tested;
 
     @Test
     public void verify_execute_callsToMethods() throws UserNotFoundException, FavouritePokemonAlreadyExistsException {

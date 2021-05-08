@@ -18,7 +18,7 @@ import javax.inject.Inject;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @QuarkusTest
-public class HttpPokemonRepositoryTest {
+public class InMemoryPokemonRepositoryTest {
     @Inject
     PokemonRepository pokemonRepository;
 

@@ -2,9 +2,8 @@ package com.ccm.user.user.application.usecases;
 
 import com.ccm.user.user.application.dto.UserFavouritePokemonDTO;
 import com.ccm.user.user.domain.exceptions.FavouritePokemonAlreadyExistsException;
-import com.ccm.user.user.domain.exceptions.UserAlreadyExistsException;
 import com.ccm.user.user.domain.exceptions.UserNotFoundException;
-import com.ccm.user.user.domain.services.AddFavouritePokemonToUser;
+import com.ccm.user.user.domain.services.AddFavouritePokemon;
 import com.ccm.user.user.domain.vo.FavouritePokemonId;
 import com.ccm.user.user.domain.vo.UserId;
 import io.quarkus.test.junit.QuarkusMock;
@@ -31,13 +30,13 @@ public class AddFavouritePokemonUseCaseTest {
             userId.getUserId()
         );
 
-        AddFavouritePokemonToUser addFavouritePokemonToUser = Mockito.mock(AddFavouritePokemonToUser.class);
-        Mockito.doNothing().when(addFavouritePokemonToUser).execute(pokemonId, userId);
-        QuarkusMock.installMockForType(addFavouritePokemonToUser, AddFavouritePokemonToUser.class);
+        AddFavouritePokemon addFavouritePokemon = Mockito.mock(AddFavouritePokemon.class);
+        Mockito.doNothing().when(addFavouritePokemon).execute(pokemonId, userId);
+        QuarkusMock.installMockForType(addFavouritePokemon, AddFavouritePokemon.class);
 
         tested.addFavouritePokemon(userFavouritePokemonDTO);
 
-        Mockito.verify(addFavouritePokemonToUser, times(1)).execute(pokemonId, userId);
+        Mockito.verify(addFavouritePokemon, times(1)).execute(pokemonId, userId);
     }
 
     @Test
@@ -49,9 +48,9 @@ public class AddFavouritePokemonUseCaseTest {
                 userId.getUserId()
         );
 
-        AddFavouritePokemonToUser addFavouritePokemonToUser = Mockito.mock(AddFavouritePokemonToUser.class);
-        Mockito.doThrow(UserNotFoundException.class).when(addFavouritePokemonToUser).execute(pokemonId, userId);
-        QuarkusMock.installMockForType(addFavouritePokemonToUser, AddFavouritePokemonToUser.class);
+        AddFavouritePokemon addFavouritePokemon = Mockito.mock(AddFavouritePokemon.class);
+        Mockito.doThrow(UserNotFoundException.class).when(addFavouritePokemon).execute(pokemonId, userId);
+        QuarkusMock.installMockForType(addFavouritePokemon, AddFavouritePokemon.class);
 
         assertThrows(UserNotFoundException.class, () -> {
             tested.addFavouritePokemon(userFavouritePokemonDTO);
@@ -67,9 +66,9 @@ public class AddFavouritePokemonUseCaseTest {
                 userId.getUserId()
         );
 
-        AddFavouritePokemonToUser addFavouritePokemonToUser = Mockito.mock(AddFavouritePokemonToUser.class);
-        Mockito.doThrow(FavouritePokemonAlreadyExistsException.class).when(addFavouritePokemonToUser).execute(pokemonId, userId);
-        QuarkusMock.installMockForType(addFavouritePokemonToUser, AddFavouritePokemonToUser.class);
+        AddFavouritePokemon addFavouritePokemon = Mockito.mock(AddFavouritePokemon.class);
+        Mockito.doThrow(FavouritePokemonAlreadyExistsException.class).when(addFavouritePokemon).execute(pokemonId, userId);
+        QuarkusMock.installMockForType(addFavouritePokemon, AddFavouritePokemon.class);
 
         assertThrows(FavouritePokemonAlreadyExistsException.class, () -> {
             tested.addFavouritePokemon(userFavouritePokemonDTO);
