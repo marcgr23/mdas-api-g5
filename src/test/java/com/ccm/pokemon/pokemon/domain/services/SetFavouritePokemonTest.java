@@ -15,6 +15,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import javax.inject.Inject;
 
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @QuarkusTest
@@ -37,18 +39,20 @@ public class SetFavouritePokemonTest {
         Mockito.verify(pokemonRepository, Mockito.times(1)).create(pokemonId);
     }
 
-    /*@Test
+    @Test
     public void verify_setFavouritePokemon_update_callsToMethods() throws PokemonNotFoundException, TimeoutException, UnknownException, NetworkConnectionException {
         PokemonId pokemonId = new PokemonId(1);
         Pokemon pokemon = new Pokemon(new Name("bulbasaur"), new PokemonId(1));
 
         PokemonRepository pokemonRepository = Mockito.mock(InMemoryPokemonRepository.class);
-        when(pokemonRepository.exists(pokemonId)).thenReturn(true);
+        when(pokemonRepository.exists(any())).thenReturn(true);
+        when(pokemonRepository.find(any())).thenReturn(pokemon);
+        Mockito.doNothing().when(pokemonRepository).updateFavouriteCounter(any());
         QuarkusMock.installMockForType(pokemonRepository, PokemonRepository.class);
 
         tested.setFavouritePokemon(pokemonId);
         Mockito.verify(pokemonRepository, Mockito.times(1)).find(pokemonId);
         Mockito.verify(pokemonRepository, Mockito.times(1)).updateFavouriteCounter(pokemon);
         Mockito.verify(pokemonRepository, Mockito.times(0)).create(pokemonId);
-    }*/
+    }
 }
